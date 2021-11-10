@@ -33,7 +33,7 @@ public class KafkaConsumerConfig {
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, deserializer);
-        return new DefaultKafkaConsumerFactory<>(configs);
+        return new DefaultKafkaConsumerFactory<>(configs, new StringDeserializer(), deserializer);
     }
 
     private JsonDeserializer<PushEntity> pushEntityJsonDeserializer() {
